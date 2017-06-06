@@ -15,12 +15,20 @@
   color: white;
 }
 
-.App-intro {
-  font-size: large;
+.leftControls {
+  float:left;
+  width:20%;
+  height:100%;
 }
 
 .grid {
-  display: grid;
+  float:left;
+  width:60%;
+}
+
+.rightControls {
+  float:right;
+  width:20%;
 }
 
 @keyframes App-logo-spin {
@@ -36,6 +44,10 @@ table {
 
 table, th, td {
    border: 1px solid black;
+}
+
+td {
+  width:1em;
 }
 
 td.alive {

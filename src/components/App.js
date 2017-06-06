@@ -4,6 +4,38 @@ import Grid from './Grid'
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      cells: [
+        [0,1,0,1],
+        [1,0,1,0],
+        [0,1,0,1],
+        [1,0,1,0]]
+    }
+    this.addColumn = this.addColumn.bind(this)
+    this.addRow = this.addRow.bind(this)
+  }
+
+  addColumn() {
+    let newCells = [];
+    for(let row of this.state.cells){
+      row.push(0)
+      newCells.push(row)
+    }
+    this.setState({cells:newCells})
+  }
+
+  addRow() {
+    let newCells = this.state.cells.slice(0)
+    let newRow = []
+    for(let i = 0; i < newCells[0].length; i++){
+      newRow.push(0)
+    }
+    newCells.push(newRow)
+    this.setState({cells:newCells})
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,11 +43,20 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Conway&#8217;s Game of Life!</h2>
         </div>
-        <Grid cells={[
-          [0,1,0,1],
-          [1,0,1,0],
-          [0,1,0,1],
-          [1,0,1,0]]}/>
+        <div>
+          <div className="leftControls">
+            <button onClick={this.addRow}>Add row</button>
+          </div>
+          <div className="grid">
+            <Grid cells={this.state.cells}/>
+              <div className="bottomControls">
+                <button onClick={this.addColumn}>Add column</button>
+              </div>
+            </div>
+            <div className="rightControls">
+              <button>Start</button>
+            </div>
+          </div>
       </div>
     );
   }
