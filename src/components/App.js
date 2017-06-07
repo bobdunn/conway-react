@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import Grid from './Grid'
 import './App.css';
+import conway from '../utils/conway'
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +16,9 @@ class App extends Component {
     }
     this.addColumn = this.addColumn.bind(this)
     this.addRow = this.addRow.bind(this)
+    this.iterate = this.iterate.bind(this)
+    this.startIterating = this.startIterating.bind(this)
+    this.stopIterating = this.stopIterating.bind(this)
   }
 
   addColumn() {
@@ -36,6 +40,20 @@ class App extends Component {
     this.setState({cells:newCells})
   }
 
+  iterate() {
+    this.setState({cells:conway.iterate(this.state.cells)})
+  }
+
+  startIterating() {
+    this.interval = setInterval(this.iterate, 500)
+  }
+
+  stopIterating() {
+    if(this.interval) {
+      clearInterval(this.interval)
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -54,7 +72,9 @@ class App extends Component {
               </div>
             </div>
             <div className="rightControls">
-              <button>Start</button>
+              <button onClick={this.startIterating}>Start</button>
+              <button onClick={this.stopIterating}>Stop</button>
+              <button onClick={this.iterate}>Iterate</button>
             </div>
           </div>
       </div>
