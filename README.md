@@ -32,6 +32,8 @@ npm i
 npm start
 ```
 
+(Note that depending on your python configuration, you may see some errors during the `npm i` step.  These should not prevent the app from running correctly.)
+
 This should launch the app on http://localhost:3000/
 
 To run the tests, use:
