@@ -26,7 +26,7 @@ I love that this provides so much setup out of the box.  Many thumbs up.  Would 
 You can run the app by running these commands:
 
 ```
-git clone git@github.com:bobdunn/conway-react.git
+git clone https://github.com/bobdunn/conway-react
 cd conway-react
 npm i
 npm start
