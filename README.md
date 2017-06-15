@@ -18,3 +18,25 @@ There are lots of opinions about what things ought to be unit tested, especially
 ## Create-react-app
 
 I love that this provides so much setup out of the box.  Many thumbs up.  Would use again!
+
+
+
+# Running the app
+
+You can run the app by running these commands:
+
+```
+git clone git@github.com:bobdunn/conway-react.git
+cd conway-react
+npm i
+npm start
+```
+
+This should launch the app on http://localhost:3000/
+
+To run the tests, use:
+
+```
+npm test
+```
+
