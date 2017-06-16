@@ -11,12 +11,19 @@ describe('#iterate', ()=>{
     expect(conway.iterate(input).cells.length).toEqual(0)
   })
   it('should keep a cell alive with two neighbors', () => {
-    const input = {height:1, width:1, cells:[
+    const input = {height:2, width:2, cells:[
       {x:0, y:0}, {x:1, y:0},
       {x:0, y:1}
     ]}
     expect(conway.iterate(input).cells.some(c => c.x === 0 && c.y === 0)).toBeTruthy()
   })
+  // it('should kill a population with no neighboring cells', () => {
+  //   const input = {height:3, width:3, cells:[
+  //     {x:0, y:0}, {x:2, y:0},
+  //     {x:0, y:2}
+  //   ]}
+  //   expect(conway.iterate(input).cells.length).toBe(0)
+  // })
   // it('should keep a cell alive with three neighbors', () => {
   //   const input = [[1,1],[1,1]]
   //   expect(conway.iterate(input)[0][0]).toEqual(1)
