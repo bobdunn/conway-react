@@ -15,9 +15,14 @@ describe('#fromCellsToArray', () => {
     expect(grid.length).toEqual(population.height)
     expect(grid[0].length).toEqual(population.width)
   })
-  it('should create 1\'s in grid as specified by cells', () => {
-    const population = {height:5, width:5, cells:[{x:4, y:0}]}
+  // it('should create 1\'s in grid as specified by cells', () => {
+  //   const population = {height:5, width:5, cells:[{x:4, y:0}]}
+  //   const grid = cellsConverter.fromCellsToArray(population)
+  //   expect(grid[4][0]).toEqual(1)
+  // })
+  it('should create an array whose rows are not references to the same object', () => {
+    const population = {height:5, width:5, cells:[]}
     const grid = cellsConverter.fromCellsToArray(population)
-    expect(grid[4][0]).toEqual(1)
+    expect(grid[0]).not.toBe(grid[1])
   })
 })
