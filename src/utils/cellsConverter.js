@@ -8,10 +8,8 @@ const createArrayOfZeroes = (height, width) => {
 
 const fromCellsToArray = population => {
   let array = createArrayOfZeroes(population.height, population.width)
-  if(population.cells.length) {
-    array[0][0] = 1
-  } else {
-    array[0][0] = 0
+  for(const cell of population.cells) {
+    array[cell.y][cell.x] = 1
   }
   return array
 }
