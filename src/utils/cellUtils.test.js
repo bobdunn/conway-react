@@ -13,4 +13,10 @@ describe('#cellsAreNeighbors', () => {
   it('should return true for the cell below', () => {
     expect(cellUtils.cellsAreNeighbors({x:0, y:0}, {x:0, y:1})).toBeTruthy()
   })
+  it('should return true for a cell to the right one below', () => {
+    expect(cellUtils.cellsAreNeighbors({x:0, y:0}, {x:1, y:1})).toBeTruthy()
+  })
+  it('should return false for a cell to the right but below by two', () => {
+    expect(cellUtils.cellsAreNeighbors({x:0, y:0}, {x:1, y:2})).toBeFalsy()
+  })
 })
