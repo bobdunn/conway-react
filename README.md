@@ -9,11 +9,11 @@ Since the solution is already a React app, I really hoped to do something sexy f
 
 ## Grid structure (cells)
 
-I considered going down a path that would have made the "board" an object that had a height and width and a collection of live cells that knew their coordinates.  From the perspective of running the game, this is appealing because it allows you to easily select from the live cells to find how many live neighbors a given cell has.  Initially I created a two-dimensional array of objects with an `isAlive` property, thinking that I might enhance this object to include coordinates.  As I progressed and this seemed less likely to happen, I abandoned the object structure in favor of simply 1's and 0's.  Were I to do it again, I might just go for `true` or `false`.
+The intent for structure here is that the population is a collection that only includes the live cells.  Each cell will manage its own continued life or death.  There is a challenge in whose responsibility it is to "resurrect" a dead cell when appropriate.  Perhaps as I work through the parts that make sense, this part will reveal itself.
 
 ## Unit Tests
 
-There are lots of opinions about what things ought to be unit tested, especially when it comes to UI.  The approach I took here was to test the things whose implementations weren't initially clear in my head.  There aren't a ton of them, and they're not exhaustive, but I think they're sufficient.
+I intent to have my thinking more clearly demonstrated by the tests in this branch.  The UI is "done" for the most part, though there may be a component needed to translate from the population of live cells to the array expected by the Grid component.
 
 ## Create-react-app
 
@@ -23,10 +23,10 @@ I love that this provides so much setup out of the box.  Many thumbs up.  Would 
 
 # Running the app
 
-You can run the app by running these commands:
+You can run this branch of the app by running these commands:
 
 ```
-git clone https://github.com/bobdunn/conway-react
+git clone -b only-live-cell-objects https://github.com/bobdunn/conway-react
 cd conway-react
 npm i
 npm start
