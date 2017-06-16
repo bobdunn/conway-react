@@ -1,14 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 import Grid from './Grid';
 
 describe('#handleClick', () =>{
-  let grid;
+  let grid, tree;
   beforeEach(()=>{
-    grid = new Grid({cells:[[1,0],[0,1],]})
-    grid.handleClick(0,0)
+    grid = renderer.create(<Grid cells={[[1,0],[0,1]]} />)
+    tree = grid.toJSON()
+    tree.props.handleClick(0,0)
   })
   it('should replace cells with identical collection with dead/alive cell clicked', ()=>{
-    expect(grid.props.cells[0][0]).toBe(0)
+    expect(tree.props.cells[0][0]).toBe(0)
   })
 })
