@@ -30,7 +30,9 @@ class Grid extends Component {
 
     }
     return (
-      <table>
+      <table
+        handleClick={this.handleClick}
+        cells={this.props.cells}>
         <tbody>
           {rows}
         </tbody>
