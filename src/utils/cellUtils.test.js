@@ -20,3 +20,9 @@ describe('#cellsAreNeighbors', () => {
     expect(cellUtils.cellsAreNeighbors({x:0, y:0}, {x:1, y:2})).toBeFalsy()
   })
 })
+
+describe('#getNeighborCount', () => {
+  it('should return 0 for a solitary cell', () => {
+    expect(cellUtils.getNeighborCount({x:0, y:0}, [{x:0, y:0}])).toBe(0)
+  })
+})
